@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT([liblognorm], [1.1.3.master], [rgerhards@adiscon.com])
+AC_INIT([liblognorm], [1.1.3], [rgerhards@adiscon.com])
 AM_INIT_AUTOMAKE
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_CONFIG_SRCDIR([src/lognorm.c])
@@ -49,7 +49,7 @@ AC_SUBST(LIBLOGNORM_LIBS)
 
 # modules we require
 PKG_CHECK_MODULES(LIBESTR, libestr >= 0.0.0)
-PKG_CHECK_MODULES(JSON_C, json-c,, [PKG_CHECK_MODULES(JSON_C, json)])
+PKG_CHECK_MODULES(JSON_C, libfastjson,, [PKG_CHECK_MODULES(JSON_C, json-c,, [PKG_CHECK_MODULES(JSON_C, json)]) ])
 
 CFLAGS_BEFORE="$CFLAGS"
 LIBS_BEFORE="$LIBS"
